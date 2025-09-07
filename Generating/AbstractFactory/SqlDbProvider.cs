@@ -8,9 +8,9 @@ public class SqlDbProvider : IDbProvider
 {
     public DbConnection CreateConnection(string connectionString)
     {
-        var connaction = new SqlConnection(connectionString);
+        var connection = new SqlConnection(connectionString);
 
-        return connaction;
+        return connection;
     }
 
     public DbCommand CreateCommand(string commandText, CommandType commandType = CommandType.Text)
