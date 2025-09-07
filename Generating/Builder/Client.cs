@@ -7,7 +7,11 @@ public static class Client
         IHouseBuilder houseBuilder = new HouseBuilder();
         var director = new Director(houseBuilder);
 
-        var house = director.CreateHouse();
+        var house = director.CreateHouse(houseName: "Трёхэтажный коттедж с каменной крышек и подвалом.",
+                                         roofName: "Каменная крыша престиж",
+                                         roofFrameStructure: RoofFrameStructures.Cattle,
+                                         roofMaterial: RoofMaterials.Stone,
+                                         numberFloors: 3);
 
 
         Console.WriteLine($"Id: {house.Id} Name: {house.Name}");

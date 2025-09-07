@@ -9,11 +9,12 @@ public class Director
         _houseBuilder = houseBuilder;
     }
 
-    public House CreateHouse()
+    public House CreateHouse(string houseName, string roofName, RoofFrameStructures roofFrameStructure,
+        RoofMaterials roofMaterial, int numberFloors)
     {
-        _houseBuilder.DefiningHouseBaseSettings(name: "Трёхэтажный коттедж с каменной крышек и подвалом.");
-        _houseBuilder.CreateRoof("Каменная крыша престиж", RoofFrameStructures.Cattle, RoofMaterials.Stone);
-        _houseBuilder.CreateFloor(number: 3);
+        _houseBuilder.DefiningHouseBaseSettings(houseName);
+        _houseBuilder.CreateRoof(roofName, roofFrameStructure, roofMaterial);
+        _houseBuilder.CreateFloor(numberFloors);
         _houseBuilder.CreateBasement();
 
         return _houseBuilder.GetHouse();
