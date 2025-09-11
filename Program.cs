@@ -4,6 +4,7 @@ using BuilderClient = ExampleDesignPatterns.Generating.Builder.Client;
 using PrototypeCleint = ExampleDesignPatterns.Generating.Prototype.Client;
 using SingletonClient = ExampleDesignPatterns.Generating.Singleton.Client;
 using AdapterClient = ExampleDesignPatterns.Structural.Adapter.Client;
+using BridgeClient = ExampleDesignPatterns.Structural.Bridge.Client;
 
 
 AbstractFactoryClient.Run();
@@ -13,5 +14,6 @@ PrototypeCleint.Run();
 SingletonClient.Run();
 
 AdapterClient.Run();
+BridgeClient.Run();
 
 
