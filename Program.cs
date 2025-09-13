@@ -7,6 +7,7 @@ using AdapterClient = ExampleDesignPatterns.Structural.Adapter.Client;
 using BridgeClient = ExampleDesignPatterns.Structural.Bridge.Client;
 using CompositeClient = ExampleDesignPatterns.Structural.Composite.Client;
 using DecoratorClient = ExampleDesignPatterns.Structural.Decorator.Client;
+using FacadeClient = ExampleDesignPatterns.Structural.Facade.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -20,5 +21,6 @@ AdapterClient.Run();
 BridgeClient.Run();
 CompositeClient.Run();
 DecoratorClient.Run();
+FacadeClient.Run();
 
 
