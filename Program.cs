@@ -9,6 +9,7 @@ using CompositeClient = ExampleDesignPatterns.Structural.Composite.Client;
 using DecoratorClient = ExampleDesignPatterns.Structural.Decorator.Client;
 using FacadeClient = ExampleDesignPatterns.Structural.Facade.Client;
 using FlyweightClient = ExampleDesignPatterns.Structural.Flyweight.Client;
+using ProxyClient = ExampleDesignPatterns.Structural.Proxy.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -24,5 +25,5 @@ CompositeClient.Run();
 DecoratorClient.Run();
 FacadeClient.Run();
 FlyweightClient.Run();
-
+ProxyClient.Run();
 
