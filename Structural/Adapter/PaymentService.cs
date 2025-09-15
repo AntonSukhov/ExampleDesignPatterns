@@ -1,3 +1,5 @@
+using ExampleDesignPatterns.Utils;
+
 namespace ExampleDesignPatterns.Structural.Adapter;
 
 /// <summary>
