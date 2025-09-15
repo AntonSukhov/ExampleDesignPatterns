@@ -1,3 +1,5 @@
+using ExampleDesignPatterns.Utils;
+
 namespace ExampleDesignPatterns.Structural.Facade;
 
 public class HouseFacade : IHouseFacade
@@ -9,7 +11,7 @@ public class HouseFacade : IHouseFacade
     public House BuildHouse(int floorCount = 1)
     {
         if (floorCount <= 0)
-            throw new CustomerException($"Значение переменной {nameof(floorCount)} меньше или равно 0");
+            throw new CustomException($"Значение переменной {nameof(floorCount)} меньше или равно 0");
 
         var foundation = _foundationService.BuildFoundation();
         var roof = _roofService.BuildRoof();

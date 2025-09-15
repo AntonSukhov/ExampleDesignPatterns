@@ -1,4 +1,4 @@
-namespace ExampleDesignPatterns.Structural.Adapter;
+namespace ExampleDesignPatterns.Utils;
 
 public class CustomException : Exception
 {
