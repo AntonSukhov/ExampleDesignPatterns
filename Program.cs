@@ -10,6 +10,7 @@ using DecoratorClient = ExampleDesignPatterns.Structural.Decorator.Client;
 using FacadeClient = ExampleDesignPatterns.Structural.Facade.Client;
 using FlyweightClient = ExampleDesignPatterns.Structural.Flyweight.Client;
 using ProxyClient = ExampleDesignPatterns.Structural.Proxy.Client;
+using ChainOfResponsibilityClient = ExampleDesignPatterns.Behavioral.ChainOfResponsibility.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -26,4 +27,7 @@ DecoratorClient.Run();
 FacadeClient.Run();
 FlyweightClient.Run();
 ProxyClient.Run();
+
+//Поведенческие шаблоны проектирования:
+ChainOfResponsibilityClient.Run();
 
