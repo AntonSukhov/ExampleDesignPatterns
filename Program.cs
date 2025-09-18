@@ -11,6 +11,7 @@ using FacadeClient = ExampleDesignPatterns.Structural.Facade.Client;
 using FlyweightClient = ExampleDesignPatterns.Structural.Flyweight.Client;
 using ProxyClient = ExampleDesignPatterns.Structural.Proxy.Client;
 using ChainOfResponsibilityClient = ExampleDesignPatterns.Behavioral.ChainOfResponsibility.Client;
+using CommandClient = ExampleDesignPatterns.Behavioral.Command.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -30,4 +31,5 @@ ProxyClient.Run();
 
 //Поведенческие шаблоны проектирования:
 ChainOfResponsibilityClient.Run();
+CommandClient.Run();
 
