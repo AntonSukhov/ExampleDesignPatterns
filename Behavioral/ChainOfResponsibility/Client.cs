@@ -1,3 +1,5 @@
+using ExampleDesignPatterns.Utils;
+
 namespace ExampleDesignPatterns.Behavioral.ChainOfResponsibility;
 
 public static class Client

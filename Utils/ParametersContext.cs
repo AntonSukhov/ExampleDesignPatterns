@@ -1,4 +1,4 @@
-namespace ExampleDesignPatterns.Behavioral.ChainOfResponsibility;
+namespace ExampleDesignPatterns.Utils;
 
 /// <summary>
 /// Объект, который инкапсулирует параметры и предоставляет удобный интерфейс для их получения и изменения.
