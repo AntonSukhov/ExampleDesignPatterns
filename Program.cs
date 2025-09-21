@@ -13,6 +13,7 @@ using ProxyClient = ExampleDesignPatterns.Structural.Proxy.Client;
 using ChainOfResponsibilityClient = ExampleDesignPatterns.Behavioral.ChainOfResponsibility.Client;
 using CommandClient = ExampleDesignPatterns.Behavioral.Command.Client;
 using InterpreterClient = ExampleDesignPatterns.Behavioral.Interpreter.Client;
+using IteratorClient = ExampleDesignPatterns.Behavioral.Iterator.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -34,4 +35,5 @@ ProxyClient.Run();
 ChainOfResponsibilityClient.Run();
 CommandClient.Run();
 InterpreterClient.Run();
+IteratorClient.Run();
 
