@@ -14,6 +14,7 @@ using ChainOfResponsibilityClient = ExampleDesignPatterns.Behavioral.ChainOfResp
 using CommandClient = ExampleDesignPatterns.Behavioral.Command.Client;
 using InterpreterClient = ExampleDesignPatterns.Behavioral.Interpreter.Client;
 using IteratorClient = ExampleDesignPatterns.Behavioral.Iterator.Client;
+using  MediatorClient = ExampleDesignPatterns.Behavioral.Mediator.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -36,4 +37,5 @@ ChainOfResponsibilityClient.Run();
 CommandClient.Run();
 InterpreterClient.Run();
 IteratorClient.Run();
+MediatorClient.Run();
 
