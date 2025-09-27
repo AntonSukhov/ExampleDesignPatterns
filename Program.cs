@@ -17,6 +17,7 @@ using IteratorClient = ExampleDesignPatterns.Behavioral.Iterator.Client;
 using MediatorClient = ExampleDesignPatterns.Behavioral.Mediator.Client;
 using MementoClient = ExampleDesignPatterns.Behavioral.Memento.Client;
 using ObserverClient = ExampleDesignPatterns.Behavioral.Observer.Client;
+using StateClient = ExampleDesignPatterns.Behavioral.State.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -42,4 +43,5 @@ IteratorClient.Run();
 MediatorClient.Run();
 MementoClient.Run();
 ObserverClient.Run();
+StateClient.Run();
 
