@@ -19,6 +19,7 @@ using MementoClient = ExampleDesignPatterns.Behavioral.Memento.Client;
 using ObserverClient = ExampleDesignPatterns.Behavioral.Observer.Client;
 using StateClient = ExampleDesignPatterns.Behavioral.State.Client;
 using StrategyClient = ExampleDesignPatterns.Behavioral.Strategy.Client;
+using TemplateMethodClient = ExampleDesignPatterns.Behavioral.TemplateMethod.Client;
 
 //Порождающие шаблоны проектирования:
 AbstractFactoryClient.Run();
@@ -46,4 +47,5 @@ MementoClient.Run();
 ObserverClient.Run();
 StateClient.Run();
 StrategyClient.Run();
+TemplateMethodClient.Run();
 
