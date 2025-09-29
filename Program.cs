@@ -20,15 +20,19 @@ using ObserverClient = ExampleDesignPatterns.Behavioral.Observer.Client;
 using StateClient = ExampleDesignPatterns.Behavioral.State.Client;
 using StrategyClient = ExampleDesignPatterns.Behavioral.Strategy.Client;
 using TemplateMethodClient = ExampleDesignPatterns.Behavioral.TemplateMethod.Client;
+using VisitorClient = ExampleDesignPatterns.Behavioral.Visitor.Client;
 
-//Порождающие шаблоны проектирования:
+#region Основные шаблоны проектирования (23):
+
+#region Порождающие шаблоны проектирования (5):
 AbstractFactoryClient.Run();
 FactoryMethodClient.Run();
 BuilderClient.Run();
 PrototypeCleint.Run();
 SingletonClient.Run();
+#endregion
 
-//Структурные шаблоны проектирования:
+#region Структурные шаблоны проектирования (7):
 AdapterClient.Run();
 BridgeClient.Run();
 CompositeClient.Run();
@@ -36,8 +40,9 @@ DecoratorClient.Run();
 FacadeClient.Run();
 FlyweightClient.Run();
 ProxyClient.Run();
+#endregion
 
-//Поведенческие шаблоны проектирования:
+#region Поведенческие шаблоны проектирования (11):
 ChainOfResponsibilityClient.Run();
 CommandClient.Run();
 InterpreterClient.Run();
@@ -48,4 +53,7 @@ ObserverClient.Run();
 StateClient.Run();
 StrategyClient.Run();
 TemplateMethodClient.Run();
+VisitorClient.Run();
+#endregion
 
+#endregion
