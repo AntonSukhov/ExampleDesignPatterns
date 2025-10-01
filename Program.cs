@@ -21,6 +21,7 @@ using StateClient = ExampleDesignPatterns.Behavioral.State.Client;
 using StrategyClient = ExampleDesignPatterns.Behavioral.Strategy.Client;
 using TemplateMethodClient = ExampleDesignPatterns.Behavioral.TemplateMethod.Client;
 using VisitorClient = ExampleDesignPatterns.Behavioral.Visitor.Client;
+using CqrsClient = ExampleDesignPatterns.Architectural.CQRS.Client;
 
 #region Основные шаблоны проектирования (23):
 
@@ -55,5 +56,11 @@ StrategyClient.Run();
 TemplateMethodClient.Run();
 VisitorClient.Run();
 #endregion
+
+#endregion
+
+#region Архитектурные паттерны
+
+CqrsClient.Run();
 
 #endregion
