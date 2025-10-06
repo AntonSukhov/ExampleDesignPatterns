@@ -15,5 +15,14 @@ public static class Client
 
         stock.ExecuteTrade();
 
+        var jointBankAccount = new JointBankAccount();
+
+        jointBankAccount.BankAccountChanged += (sender, args) =>
+        {
+            Console.WriteLine($"Отправка на почту информации об операции со счетом:{Environment.NewLine}{args}");
+        };
+
+        jointBankAccount.AddAmount(amount: 10000m, depositor: "Иванов Иван Иванович");
+        jointBankAccount.RemoveAmount(amount: 3000m, depositor: "Петров Пётр Петрович");
     }
 }
