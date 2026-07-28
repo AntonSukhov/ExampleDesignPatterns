@@ -23,6 +23,7 @@ using TemplateMethodClient = ExampleDesignPatterns.Behavioral.TemplateMethod.Cli
 using VisitorClient = ExampleDesignPatterns.Behavioral.Visitor.Client;
 using CqrsClient = ExampleDesignPatterns.Architectural.CQRS.Client;
 using NullObjectClient = ExampleDesignPatterns.OtherPatterns.NullObject.Client;
+using SagaClient = ExampleDesignPatterns.Architectural.Saga.Client;
 
 #region Основные шаблоны проектирования (23):
 
@@ -63,6 +64,7 @@ VisitorClient.Run();
 #region Архитектурные паттерны
 
 CqrsClient.Run();
+await SagaClient.RunAsync();
 
 #endregion
 
