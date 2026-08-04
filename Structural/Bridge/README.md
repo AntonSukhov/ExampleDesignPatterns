@@ -30,41 +30,43 @@ Window
 Две независимые иерархии, связанные через композицию (мост):
 
 ```
-Поведение (Абстракция)         Настройки (Реализация)
-┌─────────────┐                ┌──────────────────┐
-│ WindowBase  │───содержит───→ │ WindowImplementor│
-│             │   ссылку на    │                  │
-│ - Implementor│               │ + Render()       │
-│ + Render()  │                │ + SetColor()     │
-└──────┬──────┘                │ + SetSize()      │
-       │                       └────────┬─────────┘
-       │                                │
-┌──────┴──────┐                 ┌────────┴──────────┐
-│ MacWindow   │                 │MacWindowImplementor│
-│ MsWindow    │                 │MsWindowImplementor │
-│ (поведение) │                 │ (настройки)       │
-└─────────────┘                 └───────────────────┘
+Поведение (Абстракция)         Настройки (Реализация — тема)
+┌─────────────┐                ┌────────────────────┐
+│ WindowBase  │───содержит───→ │ ThemeImplementor   │
+│             │   ссылку на    │                    │
+│ - ThemeImpl │               │ + FormSetup()      │
+│ + Show()    │                │ + ButtonSetup()    │
+└──────┬──────┘                │ + FormBackColor    │
+       │                       │ + FormTitle        │
+       │                       └────────┬───────────┘
+┌──────┴──────┐                 ┌────────┴───────────┐
+│ ModalWindow │                 │ LightThemeImpl     │
+│ DialogWindow│                 │ DarkThemeImpl      │
+│ (поведение) │                 │ (визуальное оформление)
+└─────────────┘                 └────────────────────┘
 ```
 
-**Иерархия поведения** — `WindowBase`, `MacWindow`, `MsWindow` — определяет *что умеет окно*.  
-**Иерархия настроек** — `WindowImplementorBase`, `MacWindowImplementor`, `MsWindowImplementor` — определяет *как рисуется*.
+**Иерархия поведения** — `WindowBase`, `ModalWindow`, `DialogWindow` — определяет *что умеет окно* (модальное, диалоговое).  
+**Иерархия тем** — `ThemeImplementorBase`, `LightThemeImplementor`, `DarkThemeImplementor` — определяет *как рисуется*.
 
-> Реализатор — не обязательно платформа. Это может быть тема, стиль или любой аспект оформления.
+> Реализатор — это тема оформления, а не платформа. Платформа определяет, *как* рисовать нативные элементы, а тема — *какие цвета и стили* использовать.
 
 ### Как работает
 
 ```
-MacWindow → (мост) → MacWindowImplementor → нативные элементы macOS
-MsWindow  → (мост) → MsWindowImplementor  → нативные элементы Windows
+ModalWindow     → (мост) → LightThemeImplementor → белая форма, светлая кнопка
+DialogWindow    → (мост) → DarkThemeImplementor  → тёмная форма, тёмная кнопка
+ModalWindow     → (мост) → DarkThemeImplementor  → тёмная форма, тёмная кнопка
+DialogWindow    → (мост) → LightThemeImplementor → белая форма, светлая кнопка
 ```
 
 **Независимость иерархий:**
 
 ```
-MsWindow       → LightTheme
-MsWindow       → DarkTheme
-MacWindow      → LightTheme
-MacWindow      → DarkTheme
+ModalWindow         → LightTheme
+ModalWindow         → DarkTheme
+DialogWindow        → LightTheme
+DialogWindow        → DarkTheme
 ```
 
 Количество комбинаций = `N × M` при количестве классов = `N + M`. Новая тема не требует новых окон.
@@ -74,16 +76,16 @@ MacWindow      → DarkTheme
 | Компонент | Описание | Пример |
 |-----------|----------|--------|
 | **Abstraction** | Интерфейс абстракции, содержит ссылку на Implementor | `WindowBase` |
-| **RefinedAbstraction** | Расширяет интерфейс абстракции | `MacWindow`, `MsWindow` |
-| **Implementor** | Интерфейс для классов реализации | `WindowImplementorBase` |
-| **ConcreteImplementor** | Конкретная реализация | `MacWindowImplementor`, `MsWindowImplementor` |
+| **RefinedAbstraction** | Расширяет интерфейс абстракции | `ModalWindow`, `DialogWindow` |
+| **Implementor** | Интерфейс для классов реализации | `ThemeImplementorBase` |
+| **ConcreteImplementor** | Конкретная реализация | `LightThemeImplementor`, `DarkThemeImplementor` |
 
 ## Преимущества
 
-- **Разделение ответственности**: абстракция — поведение, реализация — настройки
+- **Разделение ответственности**: абстракция — поведение, реализация — тема оформления
 - **Независимое расширение**: иерархии развиваются отдельно
 - **Скрытие деталей**: клиент работает только с интерфейсом абстракции
-- **Рантайм-переключение**: реализацию можно заменить в рантайме
+- **Рантайм-переключение**: тему можно заменить в рантайме, передав другой Implementator в конструктор
 
 ## Когда использовать
 
@@ -94,12 +96,12 @@ MacWindow      → DarkTheme
 
 ## Связь с другими паттернами
 
-- **Abstract Factory** — для создания семейств связанных объектов с определённой реализацией
+- **Abstract Factory** — для создания семейств связанных объектов с определённой темой
 - **Composite** — для построения иерархий, где каждый узел может быть реализован по-разному
 - **Singleton** — если реализация должна быть единственной
 
 ## См. также
 
 - [Клиент](./Client.cs)
-- [Поведение](./WindowBase.cs), [./MacWindow.cs](./MacWindow.cs), [./MsWindow.cs](./MsWindow.cs)
-- [Настройки](./WindowImplementorBase.cs), [./MacWindowImplementor.cs](./MacWindowImplementor.cs), [./MsWindowImplementor.cs](./MsWindowImplementor.cs)
+- [Поведение](./WindowBase.cs), [./ModalWindow.cs](./ModalWindow.cs), [./DialogWindow.cs](./DialogWindow.cs)
+- [Тема](./ThemeImplementorBase.cs), [./LightThemeImplementor.cs](./LightThemeImplementor.cs), [./DarkThemeImplementor.cs](./DarkThemeImplementor.cs)

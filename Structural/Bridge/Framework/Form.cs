@@ -20,5 +20,9 @@ public class Form : Control
 
     public Icon? Icon { get; set; }
 
+    public bool MaximizeBox { get; set; }
+
+    public bool MinimizeBox { get; set; }
+
     public IList<Control> Controls { get; set; } = [];
 }
