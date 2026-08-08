@@ -24,6 +24,7 @@ using VisitorClient = ExampleDesignPatterns.Behavioral.Visitor.Client;
 using CqrsClient = ExampleDesignPatterns.Architectural.CQRS.Client;
 using NullObjectClient = ExampleDesignPatterns.OtherPatterns.NullObject.Client;
 using SagaClient = ExampleDesignPatterns.Architectural.Saga.Client;
+using RepositoryClient = ExampleDesignPatterns.Architectural.Repository.Client;
 
 #region Основные шаблоны проектирования (23):
 
@@ -65,6 +66,7 @@ VisitorClient.Run();
 
 CqrsClient.Run();
 await SagaClient.RunAsync();
+await RepositoryClient.RunAsync();
 
 #endregion
 
