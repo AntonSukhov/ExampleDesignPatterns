@@ -1,0 +1,17 @@
+namespace ExampleDesignPatterns.Architectural.UnitOfWork.Entities;
+
+/// <summary>
+/// Сущность единицы работ.
+/// </summary>
+public class WorkUnitEntity
+{
+    /// <summary>
+    /// Получает или задает ИД единицы работ.
+    /// </summary>
+    public short Id { get; set; }
+
+    /// <summary>
+    /// Получает или задает название единицы работ.
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+}
