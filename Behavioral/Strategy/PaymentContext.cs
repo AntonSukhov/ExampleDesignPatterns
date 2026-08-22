@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using ExampleDesignPatterns.Utils;
 
 namespace ExampleDesignPatterns.Behavioral.Strategy;
@@ -11,6 +12,7 @@ public class PaymentContext
         SetPaymentStrategy(paymentStrategy);
     }
 
+    [MemberNotNull(nameof(_paymentStrategy))]
     public void SetPaymentStrategy(IPaymentStrategy paymentStrategy)
     {
         ArgumentNullException.ThrowIfNull(paymentStrategy);
