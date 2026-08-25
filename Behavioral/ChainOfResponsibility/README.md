@@ -55,20 +55,35 @@
 
 ### Как работает
 
+Клиент выполняет обработку ошибки в четыре этапа:
+
 ```
 Клиент:
+
+  // 1. Создание компонентов (узлов) конвейера обработки ошибки:
   var register = new RegisterErrorHandler();
   var searchSolution = new SearchErrorSolutionHandler();
   var executeSolution = new ExecuteErrorSolutionHandler();
   var finishWorks = new FinishWorksHandler();
 
+  // 2. Настройка конвейера обработки ошибки:
   register.SetNextHandler(searchSolution);
   searchSolution.SetNextHandler(executeSolution);
   searchSolution.SetNextAlternativeHandler(finishWorks);
   executeSolution.SetNextHandler(finishWorks);
 
-  register.Handle(parameters);
+  // 3. Определение входных данных обработки ошибки:
+  var error = new Error { Description = "..." };
+  var parameters = new ParametersContext();
+  parameters.SetParameter(ConstantsService.Error, error);
 
+  // 4. Запуск выполнения обработки ошибки:
+  register.Handle(parameters);
+```
+
+После запуска запрос проходит по цепочке обработчиков:
+
+```
 Цепочка внутри:
   1. RegisterErrorHandler — регистрирует ошибку, передаёт дальше
   2. SearchErrorSolutionHandler — ищет решение:
