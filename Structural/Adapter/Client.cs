@@ -5,7 +5,7 @@ public static class Client
     public static void Run()
     {
         IPaymentTerminal paymentTerminalFirst = new PaymentServiceAdapter();
-        IPaymentTerminal paymentTerminalSecond = new PaymentServiceSecondAdapter();
+        IPaymentTerminal paymentTerminalSecond = new PaymentServiceSecondAdapter(new PaymentService());
         var amount = 5000m;
         var payer = "Иванов Иван Иванович";
 
